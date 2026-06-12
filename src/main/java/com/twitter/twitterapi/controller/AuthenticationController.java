@@ -1,10 +1,15 @@
 package com.twitter.twitterapi.controller;
 
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.twitter.twitterapi.dto.UserDto;
 import com.twitter.twitterapi.dto.request.CreateUserRequest;
 import com.twitter.twitterapi.dto.request.LoginUserRequest;
 import com.twitter.twitterapi.service.AuthenticationService;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -17,12 +22,12 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public UserDto register(@RequestBody CreateUserRequest user){
+    public UserDto register(@Validated @RequestBody CreateUserRequest user){
         return authenticationService.register(user);
     }
 
     @PostMapping("/login")
-    public UserDto login(@RequestBody LoginUserRequest user){
+    public UserDto login(@Validated @RequestBody LoginUserRequest user){
         return authenticationService.login(user);
     }
 }
