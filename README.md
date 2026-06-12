@@ -1,4 +1,4 @@
-# Twitter API (örnek proje)
+# Twitter API
 
 Bu proje, basit bir Twitter benzeri REST API uygulamasıdır. Spring Boot, Spring Data JPA ve Spring Security kullanılarak uygulanmıştır. Proje temel olarak kullanıcı kaydı/girişi, tweet oluşturma, beğeni, yorum ve retweet işlevlerini sağlar.
 
