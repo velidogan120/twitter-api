@@ -8,12 +8,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
+@ActiveProfiles("test")
 class LikeRepositoryTest {
 
     private final LikeRepository likeRepository;
@@ -32,16 +34,17 @@ class LikeRepositoryTest {
     @DisplayName("Find Like entity userId and tweetId")
     @Test
     void findUserIdAndTweetId() {
-        Tweet tweet = new Tweet();
-        tweet.setText("hello");
-        tweet = tweetRepository.save(tweet);
-
         User newUser = new User();
         newUser.setFirstName("Veli");
         newUser.setLastName("Aksu");
         newUser.setEmail("veliaksu120@gmail.com");
         newUser.setPassword("123456");
         newUser = userRepository.save(newUser);
+
+        Tweet tweet = new Tweet();
+        tweet.setText("hello");
+        tweet.setUser(newUser);
+        tweet = tweetRepository.save(tweet);
 
         Like like = new Like();
         like.setTweet(tweet);
