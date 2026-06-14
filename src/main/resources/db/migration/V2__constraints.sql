@@ -1,4 +1,3 @@
-SET search_path TO twitter;
 ALTER TABLE twitter.users_roles
     ADD CONSTRAINT fk_users_roles_user
         FOREIGN KEY (user_id) REFERENCES twitter.users(id) ON DELETE CASCADE;
