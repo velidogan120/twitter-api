@@ -32,7 +32,7 @@ public class SecurityConfig {
                     auth.anyRequest().authenticated();
                 })
                 .formLogin(AbstractHttpConfigurer::disable)
-                .httpBasic(AbstractHttpConfigurer::disable)
+                .httpBasic(Customizer.withDefaults())
                 .build();
     }
 }
