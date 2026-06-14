@@ -1,4 +1,5 @@
 CREATE SCHEMA IF NOT EXISTS twitter;
+SET search_path TO twitter;
 
 CREATE TABLE twitter.users (
                                id BIGSERIAL PRIMARY KEY,
