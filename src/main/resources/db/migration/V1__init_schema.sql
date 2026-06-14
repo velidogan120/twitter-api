@@ -39,6 +39,7 @@ CREATE TABLE twitter.likes (
 
 CREATE TABLE twitter.comment (
                                  id BIGSERIAL PRIMARY KEY,
+                                 text TEXT NOT NULL,
                                  user_id BIGINT NOT NULL,
                                  tweet_id BIGINT NOT NULL
 );
