@@ -47,6 +47,14 @@ SPRING_DATASOURCE_PASSWORD=<your_password>
 SERVER_PORT=3000
 ```
 
+## Canlı Test Ortamı
+
+Projeyi kurmadan hızlıca denemek için canlı API adresi:
+
+https://twitter-api-8heh.onrender.com
+
+Bu adresi Swagger veya doğrudan REST istemcisi ile test edebilirsiniz. Kimlik doğrulama gereken uç noktalar için önce `/auth/login` ya da `/auth/register` ile kullanıcı oluşturmanız gerekir.
+
 ## API Uç Noktaları (özet)
 
 Tüm uç noktalar JSON giriş/çıkış kullanır. Kimlik doğrulama gerektiren uç noktalar için öncelikle `/auth/login` veya form-login ile oturum açılmalıdır.
@@ -105,7 +113,7 @@ public TweetDto save(@Valid @RequestBody CreateTweetRequest tweetRequest, Authen
 }
 ```
 
-Not: Controller metodlarına `@Valid` eklemek ve `@RequestBody` ile birlikte kullanmak, Spring'in otomatik doğrulamasını tetikler. `BindingResult` veya özel handler'lar ile alan bazlı hata mesajlarını frontend'e iletebilirsiniz.0
+Not: Controller metodlarına `@Valid` eklemek ve `@RequestBody` ile birlikte kullanmak, Spring'in otomatik doğrulamasını tetikler. `BindingResult` veya özel handler'lar ile alan bazlı hata mesajlarını frontend'e iletebilirsiniz.
 
 Genel öneriler:
 
